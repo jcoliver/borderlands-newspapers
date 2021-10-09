@@ -1,4 +1,4 @@
-# Collections as Data
+# Borderlands Newspapers
 
 This repository hosts Python code for downloading and assembling scanned OCR 
 text from a collection of southwestern U.S. borderlands newspapers. The texts 
