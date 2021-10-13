@@ -1,8 +1,8 @@
 #!/usr/bin/python
-# Download individual pages from Chronicling America OCR text
+# Download individual pages from Chronicling America OCR text, second set
 # Jeff Oliver
 # jcoliver@email.arizona.edu
-# 2020-03-24
+# 2021-10-12
 
 import urllib
 import json
@@ -20,14 +20,19 @@ base_url = "https://chroniclingamerica.loc.gov/search/pages/results/?dateFilterT
 num_records = 100
 
 # iterate over titles for downloads
-titles = pd.read_csv("data/titles-01.csv")
+titles = pd.read_csv("data/titles-03.csv")
 for index, row in titles.iterrows():
     title = row['name']
     lccn = row['lccn']
     directory = row['directory']
     # Page files are going to end up in a folder called "pages" within each
-    # title's directory. Check to see if data/<directory>/pages exists; if not,
+    # title's directory. Check to see if title's directory exists; if not, 
     # create it
+    if (not(os.path.isdir("data/" + directory))):
+        os.makedirs("data/" + directory)
+        
+    # Check to see if data/<directory>/pages exists; if not,
+    # create it    
     destination_dir = "data/" + directory + "/pages"
     if (not(os.path.isdir(destination_dir))):
         os.makedirs(destination_dir)

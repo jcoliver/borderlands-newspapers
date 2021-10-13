@@ -26,8 +26,13 @@ for index, row in titles.iterrows():
     lccn = row['lccn']
     directory = row['directory']
     # Page files are going to end up in a folder called "pages" within each
-    # title's directory. Check to see if data/<directory>/pages exists; if not,
+    # title's directory. Check to see if title's directory exists; if not, 
     # create it
+    if (not(os.path.isdir("data/" + directory))):
+        os.makedirs("data/" + directory)
+        
+    # Check to see if data/<directory>/pages exists; if not,
+    # create it    
     destination_dir = "data/" + directory + "/pages"
     if (not(os.path.isdir(destination_dir))):
         os.makedirs(destination_dir)
