@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Combine pages into single volumes
 # Jeff Oliver
 # jcoliver@email.arizona.edu
@@ -15,7 +15,11 @@ import re
 # Page files are named as YYYYMMDD-<page>.txt
 # Volume files will be named YYYYMMDD.txt
 
-titles = pd.read_csv("data/complete/complete-titles.csv")
+# For first set of titles downloaded from Chronicling America
+# titles = pd.read_csv("data/titles-01.csv")
+# For second set of titles downloaded from Chronicling America
+titles = pd.read_csv("data/titles-03.csv")
+
 
 # Conditional used for debugging; False will skip actual volume assembly
 assemble = True

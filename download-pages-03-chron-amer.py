@@ -1,10 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Download individual pages from Chronicling America OCR text, second set
 # Jeff Oliver
 # jcoliver@email.arizona.edu
 # 2021-10-12
 
-import urllib
+import urllib.request
 import json
 import pandas as pd
 import time
@@ -25,15 +25,20 @@ for index, row in titles.iterrows():
     title = row['name']
     lccn = row['lccn']
     directory = row['directory']
+    
+    # Make sure "complete" directory exists; if not, create it
+    if(not(os.path.is.dir("data/complete"))):
+        os.makdirs("data/complete")
+    
     # Page files are going to end up in a folder called "pages" within each
     # title's directory. Check to see if title's directory exists; if not, 
     # create it
-    if (not(os.path.isdir("data/" + directory))):
-        os.makedirs("data/" + directory)
+    if (not(os.path.isdir("data/complete/" + directory))):
+        os.makedirs("data/complete/" + directory)
         
     # Check to see if data/<directory>/pages exists; if not,
     # create it    
-    destination_dir = "data/" + directory + "/pages"
+    destination_dir = "data/complete/" + directory + "/pages"
     if (not(os.path.isdir(destination_dir))):
         os.makedirs(destination_dir)
     download_log = destination_dir + "/log.txt"
@@ -50,7 +55,7 @@ for index, row in titles.iterrows():
 
     # For first query, only need one result
     query_url = base_url + "&lccn=" + lccn + "&rows=1"
-    response = urllib.urlopen(query_url)
+    response = urllib.request.urlopen(query_url)
     data = json.loads(response.read())
     total_items = data['totalItems']
     print("\t...found " + str(total_items) + " items.")
@@ -77,7 +82,7 @@ for index, row in titles.iterrows():
             download_url = download_url + "&page=" + str(page)
 
             # Retrieve a page's worth of records
-            download_response = urllib.urlopen(download_url)
+            download_response = urllib.request.urlopen(download_url)
             download_data = json.loads(download_response.read())
 
             # Iterate over each item in items element and save the OCR text in a
@@ -92,7 +97,7 @@ for index, row in titles.iterrows():
                     ocr_text = item[ocr_lang].encode("utf-8")
                     filename = destination_dir + "/" + str(date)
                     filename = filename + "-" + str(sequence) + ".txt"
-                    text_file = open(filename, "w")
+                    text_file = open(filename, "wb")
                     text_file.write(ocr_text)
                     text_file.close()
                 else:

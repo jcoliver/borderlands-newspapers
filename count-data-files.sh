@@ -4,17 +4,18 @@
 # jcoliver@arizona.edu
 # 2020-06-22
 
-cd data
-TITLES=($(ls -d */))
+# cd data
+# TITLES=($(ls -d */))
+TITLES=($(ls -d data/complete/*))
 TOTALFILES=0
 for TITLE in "${TITLES[@]}"
 do
     # Each value of TITLE has trailing slash "/"
-    # echo "$TITLE"
+    echo "$TITLE"
     PAGEFILES=($(ls "$TITLE/pages" | wc -l))
-    # echo "$PAGEFILES"
+    echo "$PAGEFILES"
     VOLFILES=($(ls "$TITLE/volumes" | wc -l))
-    # echo "$VOLFILES"
+    echo "$VOLFILES"
     TITLEFILES=$((PAGEFILES + VOLFILES))
     # echo "$TITLEFILES"
     TOTALFILES=$((TOTALFILES + TITLEFILES))
