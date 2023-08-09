@@ -1,8 +1,8 @@
 name,place,lccn,language,directory,start,end
-El Fronterizo,Tucson,sn95070521,Spanish,el-fronterizo,,
-El Mosquito,Tucson,sn97060147,Spanish,el-mosquito,,
-The Oasis,Nogales,sn85032933,English,the-oasis,,
-The Daily Morning Oasis,Nogales,sn83025458,English,the-daily-morning-oasis,,
-Arizona Citizen,Tucson,sn82014896,English,arizona-citizen,,
-Tucson Citizen,Tucson,sn84020674,English,tucson-citizen,,
-The Weekly Orb,Bisbee,sn94050504,English,the-weekly-orb,,
+El Fronterizo,Tucson,sn95070521,Spanish,el-fronterizo,1882-01-06,1908-07-25
+El Mosquito,Tucson,sn97060147,Spanish,el-mosquito,1919-04-06,1925-11-18
+The Oasis,Nogales,sn85032933,English,the-oasis,1893-05-11,1912-12-28
+The Daily Morning Oasis,Nogales,sn83025458,English,the-daily-morning-oasis,1917-12-01,1920-12-30
+Arizona Citizen,Tucson,sn82014896,English,arizona-citizen,1870-10-15,1880-04-10
+Tucson Citizen,Tucson,sn84020674,English,tucson-citizen,1901-12-16,1902-12-08
+The Weekly Orb,Bisbee,sn94050504,English,the-weekly-orb,1898-04-10,1899-09-24
